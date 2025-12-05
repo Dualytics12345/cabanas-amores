@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estatus de Coche - Taller Mecánico</title>
+  <!-- Enlace a Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .status-card {
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .status-card h5 {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Consulta el Estatus de tu Coche</h1>
+    
+    <!-- Formulario de búsqueda -->
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="searchInput" placeholder="Ingresa tu número de orden o placa" aria-label="Número de orden o placa">
+          <button class="btn btn-primary" id="searchButton">Buscar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resultados filtrados -->
+    <div id="results" class="mt-4"></div>
+  </div>
+
+  <!-- Enlace a Bootstrap JS y dependencias -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Datos simulados
+    const carData = [
+      {
+        orden: "12345",
+        placas: "ABC-123",
+        marca: "Toyota",
+        modelo: "Corolla 2020",
+        cliente: "Juan Pérez",
+        estatus: "En reparación",
+        categoria: "Reparación",
+        detalles: "Cambio de frenos y ajuste de suspensión."
+      },
+      {
+        orden: "56789",
+        placas: "DEF-456",
+        marca: "Ford",
+        modelo: "F-150 2019",
+        cliente: "María López",
+        estatus: "Listo para entrega",
+        categoria: "Entrega",
+        detalles: "Cambio de aceite y revisión general completados."
+      },
+      {
+        orden: "98765",
+        placas: "GHI-789",
+        marca: "Honda",
+        modelo: "Civic 2021",
+        cliente: "Carlos Hernández",
+        estatus: "Esperando refacciones",
+        categoria: "Pendiente",
+        detalles: "Esperando piezas para reparación del motor."
+      }
+    ];
+
+    // Función para buscar y mostrar resultados
+    document.getElementById("searchButton").addEventListener("click", function () {
+      const searchValue = document.getElementById("searchInput").value.trim().toLowerCase();
+      const resultsContainer = document.getElementById("results");
+      resultsContainer.innerHTML = ""; // Limpiar resultados previos
+
+      if (searchValue) {
+        // Filtrar resultados
+        const filteredData = carData.filter(
+          car =>
+            car.orden.toLowerCase().includes(searchValue) ||
+            car.placas.toLowerCase().includes(searchValue) ||
+            car.marca.toLowerCase().includes(searchValue) ||
+            car.cliente.toLowerCase().includes(searchValue)
+        );
+
+        if (filteredData.length > 0) {
+          // Agrupar resultados por categoría
+          const groupedData = filteredData.reduce((acc, car) => {
+            if (!acc[car.categoria]) acc[car.categoria] = [];
+            acc[car.categoria].push(car);
+            return acc;
+          }, {});
+
+          // Mostrar resultados agrupados
+          for (const [categoria, cars] of Object.entries(groupedData)) {
+            const categoryTitle = document.createElement("h3");
+            categoryTitle.textContent = categoria;
+            categoryTitle.classList.add("text-primary", "mt-4");
+            resultsContainer.appendChild(categoryTitle);
+
+            cars.forEach(car => {
+              const card = document.createElement("div");
+              card.classList.add("status-card", "bg-light");
+
+              card.innerHTML = `
+                <h5>${car.estatus}</h5>
+                <p><strong>Orden:</strong> ${car.orden}</p>
+                <p><strong>Placas:</strong> ${car.placas}</p>
+                <p><strong>Marca:</strong> ${car.marca}</p>
+                <p><strong>Modelo:</strong> ${car.modelo}</p>
+                <p><strong>Cliente:</strong> ${car.cliente}</p>
+                <p><strong>Detalles:</strong> ${car.detalles}</p>
+              `;
+              resultsContainer.appendChild(card);
+            });
+          }
+        } else {
+          resultsContainer.innerHTML = "<p class='text-center text-danger'>No se encontraron resultados para tu búsqueda.</p>";
+        }
+      } else {
+        resultsContainer.innerHTML = "<p class='text-center text-danger'>Por favor, ingresa un término de búsqueda.</p>";
+      }
+    });
+  </script>
+</body>
+</html>
+
