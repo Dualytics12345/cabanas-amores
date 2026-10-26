@@ -20,27 +20,45 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="assets/css/chatbot.css">
 <!--
 
 -->
 <script>
-  document.getElementById("copyButton").addEventListener("click", function() {
-      var textToCopy = document.getElementById("4217 4700 8945 1898");
-      textToCopy.select();
-      document.execCommand("copy");
-      alert("Texto copiado al portapapeles: " + textToCopy.value);
-  });
-  document.getElementById("copyButton1").addEventListener("click", function() {
-      var textToCopy = document.getElementById("64 6470 1464 0199 2678");
-      textToCopy.select();
-      document.execCommand("copy");
-      alert("Texto copiado al portapapeles: " + textToCopy.value);
-  });
-  document.getElementById("copyButton2").addEventListener("click", function() {
-      var textToCopy = document.getElementById("072 470 002937698138");
-      textToCopy.select();
-      document.execCommand("copy");
-      alert("Texto copiado al portapapeles: " + textToCopy.value);
+  document.addEventListener("DOMContentLoaded", function() {
+    var btn = document.getElementById("copyButton");
+    if (btn) {
+      btn.addEventListener("click", function() {
+        var textToCopy = document.getElementById("4217 4700 8945 1898");
+        if (textToCopy) {
+          textToCopy.select();
+          document.execCommand("copy");
+          alert("Texto copiado al portapapeles: " + textToCopy.value);
+        }
+      });
+    }
+    var btn1 = document.getElementById("copyButton1");
+    if (btn1) {
+      btn1.addEventListener("click", function() {
+        var textToCopy = document.getElementById("64 6470 1464 0199 2678");
+        if (textToCopy) {
+          textToCopy.select();
+          document.execCommand("copy");
+          alert("Texto copiado al portapapeles: " + textToCopy.value);
+        }
+      });
+    }
+    var btn2 = document.getElementById("copyButton2");
+    if (btn2) {
+      btn2.addEventListener("click", function() {
+        var textToCopy = document.getElementById("072 470 002937698138");
+        if (textToCopy) {
+          textToCopy.select();
+          document.execCommand("copy");
+          alert("Texto copiado al portapapeles: " + textToCopy.value);
+        }
+      });
+    }
   });
 </script>
   </head>
@@ -1008,10 +1026,17 @@ Un punto a considerar es que en el lugar no hay señal de celular y el WiFi no l
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script src="assets/js/chatbot.js"></script>
 
   </body>
 
 </html>
+
+
+
+
+
+
 
 
 
