@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="assets/css/chatbot.css">
+    <link rel="stylesheet" href="assets/css/audio-player.css">
 <!--
 
 -->
@@ -1027,16 +1028,37 @@ Un punto a considerar es que en el lugar no hay señal de celular y el WiFi no l
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
   <script src="assets/js/chatbot.js"></script>
+  <!-- Reproductor de Audio Ambiental -->
+  <audio id="bg-music" preload="auto" loop playsinline>
+    <source src="assets/img/WhatsApp Audio 2026-10-27 at 3.42.02 PM.mpeg" type="audio/mpeg">
+    <source src="assets/images/WhatsApp Audio 2026-10-27 at 3.42.02 PM.mpeg" type="audio/mpeg">
+    <source src="assets/img/audio.mp3" type="audio/mpeg">
+    <source src="assets/images/audio.mp3" type="audio/mpeg">
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+
+  <!-- Control Flotante de Audio -->
+  <div id="audio-container" class="amores-audio-container" aria-live="polite">
+    <button id="audio-toggle-btn" class="amores-audio-btn" type="button" aria-label="Controlar música ambiental" title="Música de Cabañas Amor.es">
+      <div id="audio-eq-bars" class="amores-equalizer" style="display: none;">
+        <span class="amores-eq-bar"></span>
+        <span class="amores-eq-bar"></span>
+        <span class="amores-eq-bar"></span>
+        <span class="amores-eq-bar"></span>
+      </div>
+      <i id="audio-play-icon" class="fa fa-music"></i>
+    </button>
+    <div class="amores-audio-badge">
+      <i class="fa fa-volume-up badge-icon"></i>
+      <span id="audio-status-text">Música ambiental</span>
+    </div>
+  </div>
+
+  <script src="assets/js/audio-player.js"></script>
 
   </body>
 
 </html>
-
-
-
-
-
-
 
 
 
