@@ -62,9 +62,290 @@
     }
   });
 </script>
+
+  <!-- Temática especial de Halloween: Cabañas Amor.es -->
+  <style id="halloween-theme">
+    :root {
+      --halloween-orange: #ff7518;
+      --halloween-purple: #32104b;
+      --halloween-black: #120b18;
+      --halloween-glow: rgba(255, 117, 24, .28);
+    }
+
+    body {
+      background-color: #fffaf5;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: .12;
+      background:
+        radial-gradient(circle at 8% 12%, #ff7518 0 2px, transparent 3px),
+        radial-gradient(circle at 88% 28%, #6d2c91 0 2px, transparent 3px),
+        radial-gradient(circle at 18% 76%, #ff7518 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 86%, #6d2c91 0 2px, transparent 3px);
+      background-size: 150px 150px, 190px 190px, 170px 170px, 210px 210px;
+    }
+
+    .header-area {
+      border-bottom: 3px solid var(--halloween-orange);
+      box-shadow: 0 4px 18px rgba(20, 8, 30, .18);
+    }
+
+    .header-area .logo h1 {
+      color: var(--halloween-purple);
+    }
+
+    .header-area .nav li a:hover,
+    .header-area .nav li a.active {
+      color: var(--halloween-orange) !important;
+    }
+
+    .halloween-ribbon {
+      position: relative;
+      z-index: 2;
+      padding: 13px 18px;
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: .35px;
+      background: linear-gradient(100deg, #180d22, #3a1454 55%, #180d22);
+      border-bottom: 2px solid var(--halloween-orange);
+      overflow: hidden;
+    }
+
+    .halloween-ribbon::before,
+    .halloween-ribbon::after {
+      content: "✦";
+      color: var(--halloween-orange);
+      margin: 0 12px;
+    }
+
+    .halloween-ribbon span {
+      color: #ff9b48;
+    }
+
+    .main-banner .header-text h2 {
+      text-shadow: 2px 3px 0 #24102f, 0 0 18px rgba(255, 117, 24, .55);
+    }
+
+    .section-heading h2,
+    .properties .item h4 a {
+      text-decoration-color: var(--halloween-orange);
+      text-decoration-thickness: 2px;
+    }
+
+    .properties .item,
+    .card,
+    .info-table,
+    .accordion-item,
+    .video-frame {
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .properties .item {
+      border: 1px solid rgba(255, 117, 24, .35);
+      box-shadow: 0 7px 22px rgba(36, 16, 47, .09);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .properties .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px var(--halloween-glow);
+    }
+
+    .main-button a,
+    .icon-button a {
+      background: linear-gradient(135deg, #ff7518, #d94b00) !important;
+      border-color: #ff7518 !important;
+      color: #fff !important;
+      border-radius: 25px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .main-button a:hover,
+    .icon-button a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px var(--halloween-glow);
+    }
+
+    .halloween-bubble {
+      position: fixed;
+      right: 18px;
+      bottom: 105px;
+      z-index: 1000;
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ff9b24, #e64a00);
+      border: 2px solid #fff0d7;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, .25);
+      font-size: 31px;
+      animation: halloween-float 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes halloween-float {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-8px) rotate(5deg); }
+    }
+
+    .halloween-corner {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      z-index: 2;
+      font-size: 25px;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,.25));
+      pointer-events: none;
+    }
+
+    footer {
+      border-top: 4px solid var(--halloween-orange);
+      background: linear-gradient(120deg, #180d22, #32104b) !important;
+    }
+
+    footer p, footer a {
+      color: #fff !important;
+    }
+
+    @media (max-width: 767px) {
+      .halloween-ribbon {
+        font-size: 13px;
+        padding: 11px 8px;
+      }
+      .halloween-ribbon::before,
+      .halloween-ribbon::after {
+        margin: 0 4px;
+      }
+      .halloween-bubble {
+        width: 48px;
+        height: 48px;
+        right: 12px;
+        bottom: 90px;
+        font-size: 25px;
+      }
+    }
+
+    /* Toques de Día de Muertos */
+    .muertos-rain {
+      position: fixed;
+      inset: 0;
+      z-index: 998;
+      overflow: hidden;
+      pointer-events: none;
+      contain: layout paint;
+    }
+
+    .muertos-emoji {
+      position: absolute;
+      top: -12vh;
+      left: var(--left, 50%);
+      font-size: var(--size, 22px);
+      line-height: 1;
+      opacity: 0;
+      filter: drop-shadow(0 2px 2px rgba(40, 12, 40, .16));
+      animation: muertos-fall var(--duration, 12s) linear var(--delay, 0s) infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes muertos-fall {
+      0% { transform: translate3d(0, -8vh, 0) rotate(0deg); opacity: 0; }
+      8% { opacity: .88; }
+      85% { opacity: .82; }
+      100% { transform: translate3d(var(--drift, 40px), 115vh, 0) rotate(360deg); opacity: 0; }
+    }
+
+    .muertos-papel-picado {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      padding: 0 8px 7px;
+      background: #fffaf5;
+      overflow: hidden;
+    }
+
+    .muertos-papel-picado span {
+      width: 28px;
+      height: 22px;
+      flex: 0 0 28px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 13px;
+      clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+      box-shadow: 0 2px 4px rgba(0,0,0,.12);
+    }
+
+    .muertos-papel-picado span:nth-child(4n+1) { background: #e94e77; }
+    .muertos-papel-picado span:nth-child(4n+2) { background: #6d2c91; }
+    .muertos-papel-picado span:nth-child(4n+3) { background: #e87516; }
+    .muertos-papel-picado span:nth-child(4n) { background: #159b86; }
+
+    .section-heading h2::before,
+    .section-heading h2::after {
+      content: " ✿ ";
+      color: #e87516;
+      font-size: .7em;
+      vertical-align: middle;
+    }
+
+    .properties .item::before {
+      content: "🌼";
+      position: absolute;
+      z-index: 3;
+      top: 8px;
+      left: 9px;
+      font-size: 19px;
+      line-height: 1;
+      pointer-events: none;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,.2));
+    }
+
+    .properties .item { position: relative; }
+
+    .halloween-ribbon {
+      border-top: 2px solid #e87516;
+    }
+
+    @media (max-width: 767px) {
+      .muertos-emoji { font-size: var(--mobile-size, 18px); }
+      .muertos-papel-picado { gap: 3px; padding-bottom: 5px; }
+      .muertos-papel-picado span { width: 22px; height: 18px; flex-basis: 22px; font-size: 11px; }
+      .section-heading h2::before, .section-heading h2::after { content: " ✿ "; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .halloween-bubble { animation: none; }
+      .properties .item, .main-button a, .icon-button a { transition: none; }
+      .muertos-emoji { animation: none; display: none; }
+    }
+  </style>
+
   </head>
 
 <body>
+
+  <!-- Franja temática de Halloween -->
+  <div class="halloween-ribbon" role="note" aria-label="Temporada de Halloween">
+    🎃 <span>HALLOWEEN EN CABAÑAS AMOR.ES</span> 🦇
+    <span style="color:#fff;font-weight:500;"> Vive una escapada de misterio, bosque y fogata en Real del Monte.</span>
+    👻
+  </div>
+  <div class="muertos-papel-picado" aria-hidden="true">
+    <span>✿</span><span>☠</span><span>🌼</span><span>✦</span><span>🕯</span><span>✿</span><span>☠</span><span>🌼</span><span>✦</span><span>🕯</span><span>✿</span><span>☠</span>
+  </div>
+  <div class="halloween-bubble" aria-hidden="true">🎃</div>
+  <div id="muertos-rain" class="muertos-rain" aria-hidden="true"></div>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <a href="https://api.whatsapp.com/send?phone=527714654896&text=Hola, me gustaria Obtener más información" class="float" target="_blank">
   <i class="fa fa-whatsapp my-float "></i>
@@ -122,7 +403,8 @@
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <div class="main-banner">
+  <div class="main-banner" style="position:relative;">
+    <span class="halloween-corner" aria-hidden="true">🦇 🎃</span>
     <div class="owl-carousel owl-banner">
       <div class="item item-1">
         <div class="header-text">
@@ -236,8 +518,8 @@
       <div class="row">
         <div class="col-lg-6 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/oct.jpeg" alt=""></a>
-            <span class="category">MES OCTUBRE</span>
+            <a href="property-details.html"><img src="assets/images/nov.jpeg" alt=""></a>
+            <span class="category">MES NOVIEMBRE</span>
             <h4><a href="property-details.html">¿Que incluye?</a></h4>
             <ul>
               <li><span>CABAÑAS AMORES</span></li>
@@ -276,13 +558,13 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center">
         <!-- Título de la sección -->
-        <h2>MES OCTUBRE</h2>
+        <h2>MES NOVIEMBRE</h2>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-6 text-center">
         <!-- Imagen debajo del título -->
-        <img src="assets/images/oct.jpeg" class="w-100 shadow-1-strong rounded mt-4" alt="Promoción Especial">
+        <img src="assets/images/nov.jpeg" class="w-100 shadow-1-strong rounded mt-4" alt="Promoción Especial">
       </div>
     </div>
   </div>
@@ -1054,12 +1336,36 @@ Un punto a considerar es que en el lugar no hay señal de celular y el WiFi no l
     </div>
   </div>
 
+  <script>
+    // Lluvia ligera de emojis inspirados en el Día de Muertos.
+    (function () {
+      var rain = document.getElementById('muertos-rain');
+      if (!rain || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var symbols = ['🌼', '💀', '🕯️', '🌺', '🧡', '🦋', '✨', '🏵️'];
+      var count = window.innerWidth < 768 ? 11 : 19;
+      var fragment = document.createDocumentFragment();
+
+      for (var i = 0; i < count; i++) {
+        var item = document.createElement('span');
+        item.className = 'muertos-emoji';
+        item.textContent = symbols[i % symbols.length];
+        item.style.setProperty('--left', (Math.random() * 98) + '%');
+        item.style.setProperty('--size', (17 + Math.random() * 13) + 'px');
+        item.style.setProperty('--mobile-size', (14 + Math.random() * 7) + 'px');
+        item.style.setProperty('--duration', (10 + Math.random() * 11) + 's');
+        item.style.setProperty('--delay', (-Math.random() * 18) + 's');
+        item.style.setProperty('--drift', ((Math.random() * 120) - 60) + 'px');
+        fragment.appendChild(item);
+      }
+      rain.appendChild(fragment);
+    })();
+  </script>
   <script src="assets/js/audio-player.js"></script>
 
   </body>
 
 </html>
-
 
 
 
