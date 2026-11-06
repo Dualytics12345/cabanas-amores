@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="assets/css/audio-player.css">
 <!--
 
 -->
@@ -193,7 +194,7 @@
           <div class="item">
             <a href="property-details.html"><img src="assets/images/B1.jpg" alt=""></a>
             <span class="category">Cabaña Individual</span>
-            <h6>$1,350.00/Dia</h6>
+            <h6>$1,500.00/Dia</h6>
             <h4><a href="property-details.html">Esperanza</a></h4>
             <ul>
               <li>Cama Matrimonial: <span>1</span></li>
@@ -211,7 +212,7 @@
           <div class="item">
             <a href="property-details.html"><img src="assets/images/B5.jpg" alt=""></a>
             <span class="category">Cabaña Individual</span>
-            <h6>$1,350.00/Dia</h6>
+            <h6>$1,500.00/Dia</h6>
             <h4><a href="property-details.html">Libertad</a></h4>
             <ul>
               <li>Cama Matrimonial: <span>1</span></li>
@@ -229,7 +230,7 @@
           <div class="item">
             <a href="property-details.html"><img src="assets/images/C4.jpeg" alt=""></a>
             <span class="category">Cabaña Individual</span>
-            <h6>$1,350.00/Dia</h6>
+            <h6>$1,500.00/Dia</h6>
             <h4><a href="property-details.html">Empatia</a></h4>
             <ul>
               <li>Cama Matrimonial: <span>1</span></li>
@@ -283,7 +284,7 @@
           <div class="item">
             <a href="property-details.html"><img src="assets/images/B8.jpg" alt=""></a>
             <span class="category">Cabaña Familiar o Doble</span>
-            <h6>$2,000.00/Dia</h6>
+            <h6>$2,200.00/Dia</h6>
             <h4><a href="property-details.html">Familia</a></h4>
             <ul>
               <li>Recamaras independientes: <span>2</span></li>
@@ -302,7 +303,7 @@
           <div class="item">
             <a href="property-details.html"><img src="assets/images/B9.jpg" alt=""></a>
             <span class="category">Cabaña Familiar o Doble</span>
-            <h6>$2,000.00/Dia</h6>
+            <h6>$2,200.00/Dia</h6>
             <h4><a href="property-details.html">Igualdad</a></h4>
             <ul>
               <li>Recamaras independientes: <span>2</span></li>
@@ -323,7 +324,7 @@
           <div class="item">
             <a href="property-details.html"><img src="assets/images/C5.jpeg" alt=""></a>
             <span class="category">Cabaña Familiar o Doble</span>
-            <h6>$2,000.00/Dia</h6>
+            <h6>$2,200.00/Dia</h6>
             <h4><a href="property-details.html">Salud</a></h4>
             <ul>
               <li>Recamaras independientes: <span>2</span></li>
@@ -342,7 +343,7 @@
           <div class="item">
             <a href="property-details.html"><img src="assets/images/C3.jpeg" alt=""></a>
             <span class="category">Cabaña Familiar o Doble</span>
-            <h6>$2,000.00/Dia</h6>
+            <h6>$2,200.00/Dia</h6>
             <h4><a href="property-details.html">Unión</a></h4>
             <ul>
               <li>Recamaras independientes: <span>2</span></li>
@@ -390,6 +391,34 @@
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
+
+  <!-- Reproductor de Audio Ambiental -->
+  <audio id="bg-music" preload="auto" loop playsinline>
+    <source src="assets/img/WhatsApp Audio 2026-10-27 at 3.42.02 PM.mpeg" type="audio/mpeg">
+    <source src="assets/images/WhatsApp Audio 2026-10-27 at 3.42.02 PM.mpeg" type="audio/mpeg">
+    <source src="assets/img/audio.mp3" type="audio/mpeg">
+    <source src="assets/images/audio.mp3" type="audio/mpeg">
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+
+  <!-- Control Flotante de Audio -->
+  <div id="audio-container" class="amores-audio-container" aria-live="polite">
+    <button id="audio-toggle-btn" class="amores-audio-btn" type="button" aria-label="Controlar música ambiental" title="Música de Cabañas Amor.es">
+      <div id="audio-eq-bars" class="amores-equalizer" style="display: none;">
+        <span class="amores-eq-bar"></span>
+        <span class="amores-eq-bar"></span>
+        <span class="amores-eq-bar"></span>
+        <span class="amores-eq-bar"></span>
+      </div>
+      <i id="audio-play-icon" class="fa fa-music"></i>
+    </button>
+    <div class="amores-audio-badge">
+      <i class="fa fa-volume-up badge-icon"></i>
+      <span id="audio-status-text">Música ambiental</span>
+    </div>
+  </div>
+
+  <script src="assets/js/audio-player.js"></script>
 
   </body>
 </html>
